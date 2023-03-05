@@ -1,0 +1,104 @@
+.movie-template-wrapper {
+  text-align: left;
+  margin: 1.3rem 1.5rem;
+  width: max-content;
+}
+.movie-template-wrapper .movie-poster {
+  overflow: hidden;
+  position: relative;
+  height: max-content;
+  width: max-content;
+  border: 5px solid var(--primary-white);
+  border-radius: 5px;
+  transition: border 0.5s;
+  margin: 0 auto;
+  background-color: var(--primary-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.movie-poster img {
+  display: inline-block;
+  width: 210px;
+  height: 315px;
+  object-fit: center;
+}
+
+.movie-poster .more-details {
+  position: absolute;
+  display: block;
+  text-decoration: none;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  letter-spacing: var(--negative-letter-spacing);
+  background-color: var(--primary-black-gradient-darker);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  opacity: 0;
+  transition: 0.3s;
+  pointer-events: none;
+}
+.more-details .star-icon .star {
+  color: var(--theme-color-ligher);
+  font-size: 20px;
+}
+.more-details .star-icon .rating {
+  font-size: 24px;
+  color: var(--primary-white-lesser);
+}
+.more-details .genres {
+  margin-top: 2rem;
+}
+.genres h3 {
+  font-size: 24px;
+  color: var(--primary-white-lesser);
+}
+.more-details .more-details-btn {
+  margin-top: 3rem;
+  transform: translateY(20px);
+  opacity: 0;
+  transition: 0.2s;
+  /* transition-delay: 0.1s; */
+}
+.more-details-btn button {
+  border: none;
+  color: var(--primary-white-lesser);
+  background-color: var(--theme-color);
+  border-radius: 3px;
+  text-decoration: none;
+  padding: 0.5rem 1.3rem;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+}
+.movie-poster:hover .more-details {
+  opacity: 1;
+  pointer-events: all;
+}
+.movie-poster:hover .more-details-btn {
+  opacity: 1;
+  transform: translateY(0);
+}
+.movie-template-wrapper .movie-poster:hover {
+  border: 5px solid var(--theme-color);
+}
+.movie-template-wrapper .movies-details {
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+.movies-details h4 {
+  color: var(--primary-white);
+  margin-top: 0.2rem;
+  font-weight: 600;
+  letter-spacing: var(--negative-letter-spacing);
+}
+.movies-details p {
+  color: var(--semi-White);
+  font-size: 14px;
+}

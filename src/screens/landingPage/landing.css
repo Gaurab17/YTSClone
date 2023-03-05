@@ -1,0 +1,51 @@
+.landingHead {
+  background-color: black;
+}
+.movies-container {
+  min-height: max-content;
+  width: 1170px;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: calc(14px * 3);
+}
+.movies-container h1 {
+  color: var(--primary-white);
+  font-size: var(--huge-header-size);
+  margin-bottom: 1.3rem;
+}
+.movies-container > p {
+  color: var(--semi-White);
+  width: 60%;
+  margin: 0 auto;
+  margin-bottom: 1.5rem;
+}
+.movies-container > a {
+  color: var(--theme-color-blue);
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 2.2rem;
+}
+.movies-container .popular-download-title {
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--primary-white);
+  letter-spacing: var(--negative-letter-spacing);
+  margin-bottom: 1.5rem;
+}
+.movies-container .popular-download-title span {
+  margin-right: 0.4rem;
+  color: var(--theme-color);
+}
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--soft-black);
+}
+.popular-movies-lists {
+  padding: 1rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+}

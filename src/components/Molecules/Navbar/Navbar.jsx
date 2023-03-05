@@ -1,12 +1,11 @@
 import React from 'react';
 import { useState, useRef, useEffect } from 'react';
-import NavLinks from '../Atom/NavLinks';
+import NavLinks from "./NavLinks"
 import './Navbar.css';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import SearchMovieTemplate from '../Atom/SearchMovieTemplate';
+import SearchMovieTemplate from '../../Atom/SearchMovieTemplate/SearchMovieTemplate';
 
 const Navbar = () => {
   const [searchResult, setSearchResult] = useState(null);
@@ -29,7 +28,6 @@ const Navbar = () => {
           },
         })
         .then(resp => {
-          console.log(resp);
           const updatedResult = resp.data.data.movies;
           if (updatedResult) {
             setSearchResult(resp.data.data.movies);
@@ -61,13 +59,13 @@ const Navbar = () => {
   return (
     <div className="navigation">
       <div className="navigation-left_section">
-        <Link to="/">
+        <a href="/">
           <img
             src="https://yts.mx/assets/images/website/logo-YTS.svg"
             alt=""
             className="logo"
           />
-        </Link>
+        </a>
         <h3 className="navigation-site_description">
           Download HD movies in yts's clone website.
         </h3>
