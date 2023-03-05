@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@1,400;1,500;1,600;1,700&display=swap');
+:root {
+  /* colors */
+  --rss-color: #f09f3a;
+  --theme-color: #6ac045;
+  --theme-color-darker: #5ca53d;
+  --theme-color-semi-darker: #569b39;
+  --theme-color-more-darker: #40732a;
+  --theme-color-ligher: #76d34e;
+  --theme-color-more-ligher: #8ffb61;
+  --theme-color-blue: #2a6496;
+  --primary-black: rgba(28, 28, 28, 1);
+  --secondary-black: rgb(23, 23, 23);
+  --third-black: #171616;
+  --theme-black: #444444;
+  --theme-black-darker: #393939;
+  --primary-black-gradient: rgba(28, 28, 28, 0.3);
+  --primary-black-gradient-darker: rgba(28, 28, 28, 0.5);
+  --soft-black: #393939;
+  --smokewhite: #919191;
+  --semi-White: #c7c7c7;
+  --primary-white: rgb(247, 247, 247);
+  --primary-white-lesser: rgb(233, 233, 233);
+  --twitter-color: rgb(29, 161, 242);
+  --reddit-color: #ff4500;
+  --pinterest-color: #e60023;
+  --streams-color: #495e7b;
+  --imdb-color: #f3ce13;
+  /* sizes */
+  --header-font: 20px;
+  --subheader-font: 22px;
+  --semi-size-font: 18px;
+  --negative-letter-spacing: -0.03em;
+  --huge-header-size: 44px;
+  --semi-huge-header-size: 40px;
+  --movies-section-header: 20px;
+  --semi-small-font-size: 14px;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Arimo';
+  letter-spacing: var(--negative-letter-spacing);
+}
+.container {
+  position: relative;
+  background-color: var(--primary-black);
+  backdrop-filter: blur(20px);
+}
+.background-image {
+  position: absolute;
+  width: 100%;
+  mask: linear-gradient(
+    to top,
+    transparent 0%,
+    var(--primary-black-gradient) 75%
+  );
+}
