@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { faWifi } from '@fortawesome/free-solid-svg-icons';
 import MovieTemplate from '../../components/Atom/MovieTemplate/MovieTemplate';
 import LatestMovies from '../../components/Molecules/LatestMovies';
-import UpComingMovies from '../../components/Molecules/UpcomingMovies';
+import UpcomingMovies from "../../components/Molecules/UpcomingMovies"
 import Footer from '../../components/Molecules/Footer';
+import VpnBox from '../../components/Atom/VpnBox';
 import './landing.css'
 
 const LandingPage = () => {
@@ -23,7 +25,7 @@ const LandingPage = () => {
           limit: 4,
           order_by: "desc",
           sort_by: "date_added",
-          minimum_rating: 7,
+          minimum_rating: 6,
           quality: "1080p",
           page: 1,
         },
@@ -49,7 +51,7 @@ const LandingPage = () => {
         setLatestMoviesError(err);
       });
     axios
-      .get("https://yts.mx/api/v2/list_upcoming.json")
+      .get(`https://yts.torrentbay.to/api/v2/movie_suggestions.json?movie_id=${10}`)
       .then((resp) => {
         setUpcomingMovies(resp.data.data.movies);
         setUpcomingMoviesError(null);
@@ -75,13 +77,23 @@ const LandingPage = () => {
         <a href="https://yts.mx/blog/yts-mx-is-the-only-new-official-domain-for-yify-movies">
           IMPORTANT - YTS.MX is the only new official domain for YIFY Movies
         </a>
-        <p className="popular-download-title">
-          {" "}
-          <span>
-            <FontAwesomeIcon icon={faStar} />
-          </span>
-          Popular Downloads
-        </p>
+        <div className='pop-down'>
+          <p className="popular-download-title">
+            {" "}
+            <span>
+              <FontAwesomeIcon icon={faStar} />
+            </span>
+            Popular Downloads
+          </p>
+          <p className="more-featured">
+            {" "}
+            <span>
+              <FontAwesomeIcon icon={faWifi} style={{ color: "orange" }} />
+            </span>
+            more featured...
+          </p>
+        </div>
+
         <div className="divider"></div>
         <div className="popular-movies-lists">
           {suggestionMovies &&
@@ -89,12 +101,13 @@ const LandingPage = () => {
               return <MovieTemplate key={movie.id} movieDetails={movie} />;
             })}
           {suggestionMoviesError && (
-            <p>Error is shown i know its not pretty....</p>
+            <p style={{ color: "white" }}>Some Error showing up hmm.....</p>
           )}
         </div>
       </div>
+      <VpnBox />
       {latestMovies && <LatestMovies movieDetails={latestMovies} />}
-      {upcomingMovies && <UpComingMovies movieDetails={upcomingMovies} />}
+      {upcomingMovies && <UpcomingMovies movieDetails={upcomingMovies} />}
       <Footer />
     </div>
   )
