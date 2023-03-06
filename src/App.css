@@ -10,7 +10,7 @@
   --theme-color-ligher: #76d34e;
   --theme-color-more-ligher: #8ffb61;
   --theme-color-blue: #2a6496;
-  --primary-black: rgba(28, 28, 28, 1);
+  --primary-black: rgb(9, 9, 9);
   --secondary-black: rgb(23, 23, 23);
   --third-black: #171616;
   --theme-black: #444444;
@@ -27,6 +27,7 @@
   --pinterest-color: #e60023;
   --streams-color: #495e7b;
   --imdb-color: #f3ce13;
+  --vpn-text: #abcc06;
   /* sizes */
   --header-font: 20px;
   --subheader-font: 22px;
