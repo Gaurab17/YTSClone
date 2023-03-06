@@ -6,52 +6,59 @@ import axios from 'axios';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import SearchMovieTemplate from '../../Atom/SearchMovieTemplate/SearchMovieTemplate';
+// import { debounce } from 'lodash/debounce';
 
 const Navbar = () => {
-  const [searchResult, setSearchResult] = useState(null);
-  const [searchValue, setSearchValue] = useState();
+  const [searchTerm, setSearchTerm] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
+  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
   const [isResultActive, setIsResultActive] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
   const [inputFocus, setInputFocus] = useState(false);
   const refInput = useRef();
 
   useEffect(() => {
-    if (inputFocus && searchValue && searchValue.length > 1) {
-      setIsLoading(true);
-      axios
-        .get('https://yts.mx/api/v2/list_movies.json', {
-          params: {
-            limit: 5,
-            sort_by: 'rating',
-            order_by: 'desc',
-            query_term: searchValue,
-          },
-        })
-        .then(resp => {
-          const updatedResult = resp.data.data.movies;
-          if (updatedResult) {
-            setSearchResult(resp.data.data.movies);
-            setIsLoading(false);
-            setIsResultActive(true);
-          } else {
-            setSearchResult(null);
-            setIsResultActive(false);
-          }
-        });
-    } else {
-      setSearchResult(null);
-      setIsLoading(false);
-      setIsResultActive(false);
+    const delayDebounce = setTimeout(() => {
+      setDebouncedSearchTerm(searchTerm);
+    }, 1000);
+
+    return () => clearTimeout(delayDebounce);
+  }, [searchTerm]);
+
+  useEffect(() => {
+    const fetchData = () => {
+      if (debouncedSearchTerm) {
+        if (inputFocus && searchTerm && searchTerm.length > 1) {
+          axios
+            .get('https://yts.mx/api/v2/list_movies.json', {
+              params: {
+                limit: 5,
+                sort_by: 'rating',
+                order_by: 'desc',
+                query_term: debouncedSearchTerm,
+              },
+            }).then(resp => {
+              console.log(resp)
+              setSearchResults(resp.data.data.movies)
+              setIsResultActive(true);
+            });
+
+        } else {
+          setSearchResults([]);
+        }
+      }
     }
-    return () => {
-      setSearchResult(null);
-    };
-  }, [searchValue]);
+    fetchData();
+  }, [debouncedSearchTerm]);
+
+  const handleSearchInput = (event) => {
+    setSearchTerm(event.target.value);
+  }
 
   const hideSearchResult = () => {
     refInput.current.value = '';
     setIsResultActive(false);
   };
+
   const handleFocus = () => {
     setInputFocus(true);
   };
@@ -66,9 +73,6 @@ const Navbar = () => {
             className="logo"
           />
         </a>
-        <h3 className="navigation-site_description">
-          Download HD movies in yts's clone website.
-        </h3>
       </div>
 
       <div className="navigation-right_section">
@@ -81,32 +85,30 @@ const Navbar = () => {
             <input
               ref={refInput}
               onFocus={handleFocus}
-              onChange={e => {
-                setSearchValue(e.target.value);
-              }}
+              onChange={handleSearchInput}
               type="text"
               placeholder="Quick Search"
             />
-            <div className="spinner">{isLoading && <Loading />}</div>
           </div>
           <ul
             className="search-result-wrapper"
             style={
-              isResultActive && searchValue
+              isResultActive && searchTerm
                 ? { transform: 'scaleY(1)' }
                 : { transform: 'scaleY(0)', border: 'none' }
             }
           >
-            {searchResult &&
-              searchResult.map(result => {
-                return (
-                  <SearchMovieTemplate
-                    onClick={hideSearchResult}
-                    key={result.id}
-                    data={result}
-                  />
-                );
-              })}
+
+            {searchResults && searchResults.map(result => {
+              return (
+                <SearchMovieTemplate
+                  onClick={hideSearchResult}
+                  key={result.id}
+                  data={result}
+                />
+
+              );
+            })}
           </ul>
         </div>
 
