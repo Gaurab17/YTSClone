@@ -6,7 +6,6 @@ import axios from 'axios';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import SearchMovieTemplate from '../../Atom/SearchMovieTemplate/SearchMovieTemplate';
-// import { debounce } from 'lodash/debounce';
 
 const Navbar = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -117,7 +116,7 @@ const Navbar = () => {
           <NavLinks className="fourKLink" links="/browse-movies/quality=2160p">
             4K
           </NavLinks>
-          <NavLinks links="trending">Trending</NavLinks>
+          <NavLinks links="/trending-movies">Trending</NavLinks>
           <NavLinks links="/browse-movies">Browse Movies</NavLinks>
         </ul>
 
