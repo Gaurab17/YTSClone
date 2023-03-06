@@ -6,7 +6,6 @@ import { faWifi } from '@fortawesome/free-solid-svg-icons';
 import MovieTemplate from '../../components/Atom/MovieTemplate/MovieTemplate';
 import LatestMovies from '../../components/Molecules/LatestMovies';
 import UpcomingMovies from "../../components/Molecules/UpcomingMovies"
-import Footer from '../../components/Molecules/Footer';
 import VpnBox from '../../components/Atom/VpnBox';
 import './landing.css'
 
@@ -78,6 +77,7 @@ const LandingPage = () => {
           IMPORTANT - YTS.MX is the only new official domain for YIFY Movies
         </a>
         <div className='pop-down'>
+          <p></p>
           <p className="popular-download-title">
             {" "}
             <span>
@@ -85,12 +85,12 @@ const LandingPage = () => {
             </span>
             Popular Downloads
           </p>
-          <p className="more-featured">
+          <p className="popular-download-title">
             {" "}
             <span>
               <FontAwesomeIcon icon={faWifi} style={{ color: "orange" }} />
             </span>
-            more featured...
+            <a href="#"> more featured...</a>
           </p>
         </div>
 
@@ -108,7 +108,6 @@ const LandingPage = () => {
       <VpnBox />
       {latestMovies && <LatestMovies movieDetails={latestMovies} />}
       {upcomingMovies && <UpcomingMovies movieDetails={upcomingMovies} />}
-      <Footer />
     </div>
   )
 }

@@ -18,6 +18,7 @@
   width: 60%;
   margin: 0 auto;
   margin-bottom: 1.5rem;
+  line-height: 30px;
 }
 .movies-container > a {
   color: var(--theme-color-blue);
@@ -38,30 +39,16 @@
   color: var(--theme-color);
 }
 
-.pop-down .more-featured {
-  font-size: 19px;
-  font-weight: 600;
-  color: var(--primary-white);
-  letter-spacing: var(--negative-letter-spacing);
-  margin-bottom: 1.5rem;
-}
-.pop-down .more-featured span {
-  margin-right: 0.4rem;
-  color: var(--theme-color);
-}
-
 .pop-down {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
-.popular-download-title {
-  text-align: center;
-}
 
-.more-featured {
-  margin-left: auto;
+.pop-down a {
+  color: white;
+  text-decoration: none;
 }
 
 .popular-movies-lists {
