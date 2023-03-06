@@ -1,0 +1,52 @@
+.trending-movies {
+  position: relative;
+  height: auto;
+  width: 100%;
+  padding: 1.5rem 0;
+  background: black;
+}
+
+.trending-movies
+  .trending-movies_container
+  .trending-movies-header-section
+  .trending-movies_title {
+  color: #6ac045;
+  font-size: 1.4em;
+  margin: auto;
+}
+.trending-movies .trending-movies_container {
+  width: 1170px;
+  margin: 0 auto;
+}
+.trending-movies-header-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1.5rem 0;
+}
+.trending-movies-header-section h1 {
+  font-size: var(--movies-section-header);
+  letter-spacing: var(--negative-letter-spacing);
+  color: var(--primary-white);
+  font-weight: 600;
+}
+.trending-movies-header-section a {
+  text-decoration: none;
+  color: var(--smokewhite);
+  font-size: var(--semi-small-font-size);
+  font-weight: 600;
+  transition: 0.2s;
+}
+.trending-movies-header-section a:hover {
+  color: var(--semi-White);
+}
+.trending-movies_movie {
+  width: 100%;
+  height: fit-content;
+  display: grid;
+  grid-template-columns: repeat(
+    4,
+    1fr
+  ); /* Creates 5 columns with equal width */
+  grid-gap: 10px; /* Adds 10px gap between each item */
+}
