@@ -57,6 +57,13 @@ const Footer = () => {
                 By using this site you agree to and accept our{" "}
                 <a href="#">User Agreement</a>, which can be read <a href="#">here.</a>
             </p>
+            <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", textAlign: "center" }}>
+                <p style={{ color: "white", paddingTop: "12px" }}>Copy Right All rights reserved.</p>
+                <a style={{ textDecoration: "none", color: "white" }} href="https://github.com/Gaurab17">
+                    @Gaurab Shrestha
+                </a>
+            </div>
+
         </footer>
     );
 }

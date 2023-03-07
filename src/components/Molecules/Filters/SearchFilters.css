@@ -1,0 +1,45 @@
+.filtered-movies-container {
+  background-color: var(--primary-black);
+}
+.filtered-movies-container .filtered-movies-wrapper {
+  width: 1170px;
+  margin: 0 auto;
+  padding: 1.5rem 3.5rem;
+  text-align: center;
+}
+.filtered-movies-container .filtered-movies-wrapper h1 {
+  color: var(--theme-color-darker);
+  font-size: var(--subheader-font);
+  font-weight: normal;
+}
+.filtered-movies-container .filtered-movies-wrapper h1 span {
+  font-weight: 900;
+}
+.filtered-movies-container .filtered-movies-wrapper ul.filtered-movies_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.filtered-movies-container
+  .filtered-movies-wrapper
+  ul.filtered-movies_wrapper
+  .movie-template-wrapper {
+  margin: 1.3rem 0;
+}
+.filtered-movies-container
+  .filtered-movies-wrapper
+  ul.filtered-movies_wrapper
+  .movie-template-wrapper
+  .movie-poster
+  img {
+  width: 173px;
+  height: auto;
+}
+.filtered-movies-container
+  .filtered-movies-wrapper
+  ul.filtered-movies_wrapper
+  .movie-template-wrapper
+  .movies-details
+  h4 {
+  font-size: var(--semi-small-font-size);
+}
