@@ -5,6 +5,7 @@ import Layout from './layout/Layout'
 import LandingPage from './screens/landingPage'
 import MovieDownload from "./components/Molecules/MovieDownloads"
 import Trending from "./components/Molecules/Trending"
+import BrowseMovies from "./components/Molecules/BrowseMovies"
 
 const App = () => {
   return (
@@ -21,6 +22,10 @@ const App = () => {
         <Route
           path="/trending-movies"
           element={<Trending />}
+        />
+        <Route
+          path="/browse-movies"
+          element={<BrowseMovies />}
         />
       </Route>
     </Routes>
