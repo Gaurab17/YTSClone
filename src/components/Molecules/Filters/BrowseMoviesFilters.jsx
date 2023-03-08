@@ -102,7 +102,7 @@ const BrowseMoviesFilters = ({ onMovieFilter }) => {
                             <option value="720p">720p</option>
                             <option value="1080p">1080p</option>
                             <option value="2160p">2160p</option>
-                            <option value="3D">3D</option>
+                            <option value="3D">4k</option>
                         </select>
                     </div>
                     <div className="filter-option_genre">

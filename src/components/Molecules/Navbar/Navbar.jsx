@@ -25,25 +25,23 @@ const Navbar = () => {
 
   useEffect(() => {
     const fetchData = () => {
-      if (debouncedSearchTerm) {
-        if (inputFocus && searchTerm && searchTerm.length > 1) {
-          axios
-            .get('https://yts.mx/api/v2/list_movies.json', {
-              params: {
-                limit: 5,
-                sort_by: 'rating',
-                order_by: 'desc',
-                query_term: debouncedSearchTerm,
-              },
-            }).then(resp => {
-              console.log(resp)
-              setSearchResults(resp.data.data.movies)
-              setIsResultActive(true);
-            });
+      if (debouncedSearchTerm && inputFocus && searchTerm && searchTerm.length > 1) {
+        axios
+          .get('https://yts.mx/api/v2/list_movies.json', {
+            params: {
+              limit: 5,
+              sort_by: 'rating',
+              order_by: 'desc',
+              query_term: debouncedSearchTerm,
+            },
+          }).then(resp => {
+            console.log(resp)
+            setSearchResults(resp.data.data.movies)
+            setIsResultActive(true);
+          });
 
-        } else {
-          setSearchResults([]);
-        }
+      } else {
+        setSearchResults([]);
       }
     }
     fetchData();
@@ -56,6 +54,7 @@ const Navbar = () => {
   const hideSearchResult = () => {
     refInput.current.value = '';
     setIsResultActive(false);
+    setSearchResults([]);
   };
 
   const handleFocus = () => {
@@ -113,7 +112,7 @@ const Navbar = () => {
 
         <ul className="nav-right_navLinks">
           <NavLinks links="/">Home</NavLinks>
-          <NavLinks className="fourKLink" links="/browse-movies/quality=2160p">
+          <NavLinks className="fourKLink" links="/browse-movies">
             4K
           </NavLinks>
           <NavLinks links="/trending-movies">Trending</NavLinks>

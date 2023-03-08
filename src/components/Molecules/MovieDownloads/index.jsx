@@ -23,6 +23,7 @@ const MovieDownload = () => {
             .then((resp) => {
                 const dataArray = [resp.data.data.movie];
                 setData(dataArray);
+                // console.log(dataArray);
                 return resp.data.data.movie.id;
             })
         // .then((movie_id) => {
@@ -199,17 +200,7 @@ const MovieDownload = () => {
                         </div>
                         <div className="synopsis-right">
                             <h3>Cast</h3>
-                            <div className="profile-cell">
-                                {data[0].cast &&
-                                    data[0].cast.map((item) => {
-                                        return (
-                                            <ProfileCell key={item.imdb_code} castDetails={item} />
-                                        );
-                                    })}
-                                {!data[0].cast && (
-                                    <p className="no-cast">Cast Info Not Available</p>
-                                )}
-                            </div>
+
                             <div>
 
                             </div>
