@@ -26,20 +26,3 @@
   .movie-template-wrapper {
   margin: 1.3rem 0;
 }
-.filtered-movies-container
-  .filtered-movies-wrapper
-  ul.filtered-movies_wrapper
-  .movie-template-wrapper
-  .movie-poster
-  img {
-  width: 173px;
-  height: auto;
-}
-.filtered-movies-container
-  .filtered-movies-wrapper
-  ul.filtered-movies_wrapper
-  .movie-template-wrapper
-  .movies-details
-  h4 {
-  font-size: var(--semi-small-font-size);
-}

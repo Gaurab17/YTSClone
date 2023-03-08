@@ -41,12 +41,7 @@
   color: var(--semi-White);
 }
 .trending-movies_movie {
-  width: 100%;
-  height: fit-content;
-  display: grid;
-  grid-template-columns: repeat(
-    4,
-    1fr
-  ); /* Creates 5 columns with equal width */
-  grid-gap: 10px; /* Adds 10px gap between each item */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Adds 10px gap between each item */
 }
