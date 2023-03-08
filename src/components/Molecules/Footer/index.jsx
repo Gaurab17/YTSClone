@@ -39,20 +39,6 @@ const Footer = () => {
                     <a href="#">Login</a>
                 </li>
             </ul>
-            {/* second link */}
-            <ul className="footer-links">
-                <li>
-                    <a href="#">EZTV</a>
-                </li>
-                <li>-</li>
-                <li>
-                    <a href="#">YIFY Status</a>
-                </li>
-                <li>-</li>
-                <li>
-                    <a href="#">YTS Proxies</a>
-                </li>
-            </ul>
             <p className="site-agreement">
                 By using this site you agree to and accept our{" "}
                 <a href="#">User Agreement</a>, which can be read <a href="#">here.</a>
