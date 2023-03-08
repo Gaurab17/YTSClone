@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import TrendingMovies from '../../Atom/TrendingMovies';
 import axios from 'axios';
+import Footer from '../Footer';
 
 const Trending = () => {
     const [trendingMovies, setTrendingMovies] = useState(null);
     const [trendingMoviesError, setTrendingMoviesError] = useState(null);
-    const [isLoading, setIsLoading] = useState(true)
+    const [isLoading, setIsLoading] = useState(false)
 
     useEffect(() => {
         axios
@@ -17,21 +18,28 @@ const Trending = () => {
             .then((resp) => {
                 setTrendingMovies(resp.data.data.movies);
                 setTrendingMoviesError(null);
+                setIsLoading(true);
             })
             .catch((err) => {
                 setTrendingMoviesError(err);
             });
-        setIsLoading(false);
+        return (() => {
+            setIsLoading(false)
+        })
     }, []);
 
-    if (isLoading) {
-        return <div style={{ fontSize: "240px" }}>Loading...</div>;
-    }
     return (
-        <div>
-            {trendingMovies && <TrendingMovies movieDetails={trendingMovies} />}
-        </div>
-    )
+        <>
+            {!isLoading ? (
+                <div style={{ display: "flex", justifyContent: "center", alignItems: "center", color: "white", background: "var(--secondary-black)", height: "780px", fontSize: "24px" }}>Data Loading.... Please Wait</div>
+            ) : (
+                <div>
+                    {trendingMovies && <TrendingMovies movieDetails={trendingMovies} />}
+                    <Footer />
+                </div>
+            )}
+        </>
+    );
 }
 
 export default Trending

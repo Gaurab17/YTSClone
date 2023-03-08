@@ -8,6 +8,7 @@ import LatestMovies from '../../components/Molecules/LatestMovies';
 import UpcomingMovies from "../../components/Molecules/UpcomingMovies"
 import VpnBox from '../../components/Atom/VpnBox';
 import './landing.css'
+import Footer from '../../components/Molecules/Footer';
 
 const LandingPage = () => {
   const [suggestionMovies, setSuggestionMovies] = useState(null);
@@ -108,6 +109,7 @@ const LandingPage = () => {
       <VpnBox />
       {latestMovies && <LatestMovies movieDetails={latestMovies} />}
       {upcomingMovies && <UpcomingMovies movieDetails={upcomingMovies} />}
+      <Footer />
     </div>
   )
 }
