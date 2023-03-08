@@ -5,7 +5,7 @@ const Footer = () => {
     return (
         <footer id="footer">
             <ul className="footer-links">
-                <li>YTS &#169; 2021-2021</li>
+                <li>YTS &#169; 2011-2023</li>
                 <li>-</li>
                 <li>
                     <a href="#">Blog</a>
