@@ -8,6 +8,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import SimilarMovies from "../../Atom/SimilarMovies";
 import Footer from "../Footer";
+import DownloadOptModal from "./common/DownloadOptModal";
 
 const MovieDownload = () => {
     const { movie_id } = useParams();
@@ -17,8 +18,12 @@ const MovieDownload = () => {
     const [movieReview, setMovieReview] = useState();
     const [showDownloadELe, setShowDownloadEle] = useState(false)
 
-    const downloadButton = () => {
-        setShowDownloadEle(!showDownloadELe)
+    const hideModel = () => {
+        setShowDownloadEle(false)
+    }
+
+    const showModel = () => {
+        setShowDownloadEle(true)
     }
 
     useEffect(() => {
@@ -51,7 +56,8 @@ const MovieDownload = () => {
 
     return (
         <>
-
+            {showDownloadELe ?
+                <DownloadOptModal hideModel={hideModel} /> : null}
             <section className="download-section-container">
                 {data && (
                     <div className="download-section-container_wrapper">
@@ -69,7 +75,7 @@ const MovieDownload = () => {
                                     />
                                 </figure>
 
-                                <button className="download-btn" onClick={downloadButton}>
+                                <button className="download-btn" onClick={showModel}>
                                     <span>
                                         <FontAwesomeIcon icon={faDownload} />
                                     </span>
@@ -86,43 +92,6 @@ const MovieDownload = () => {
                                 </button>
                             </div>
                             <div className="middle-content">
-                                {showDownloadELe && <div className="DownloadSectionOverlay">
-                                    <div className="title_movie_quality">
-                                        <h1>
-                                            Select Movie Quality
-                                        </h1>
-                                    </div>
-                                    <div class="modal-content">
-                                        <div class="modal-torrent">
-                                            <div class="modal-quality" id="modal-quality-720p"><span>720p</span></div>
-                                            <p class="quality-size">BluRay </p>
-
-                                            <p>File size</p>
-                                            <p class="quality-size">999 mb</p>
-                                            <a class="download-torrent" href="#" rel="nofollow" title="Download The Dark Knight 720p Torrent"><span class="icon-in"></span>Download</a>
-                                            <a data-torrent-id="5557" href="#" rel="nofollow"><span>Magnet</span></a>
-                                        </div>
-                                        <div class="modal-torrent">
-                                            <div class="modal-quality" id="modal-quality-1080p"><span>1080p</span></div>
-                                            <p class="quality-size">BluRay </p>
-
-                                            <p>File size</p>
-                                            <p class="quality-size">1.70 GB</p>
-                                            <a class="download-torrent" href="#"><span class="icon-in"></span>Download</a>
-                                            <a data-torrent-id="5558" href="#" rel="nofollow"><span>Magnet</span></a>
-                                        </div>
-                                        <div class="modal-torrent">
-                                            <div class="modal-quality" id="modal-quality-2160p"><span>2160p</span></div>
-                                            <p class="quality-size">BluRay </p>
-
-                                            <p>File size</p>
-                                            <p class="quality-size">7.52 GB</p>
-                                            <a class="download-torrent" href="#"><span class="icon-in"></span>Download</a>
-                                            <a data-torrent-id="36199" href="#" rel="nofollow"><span>Magnet</span></a>
-                                        </div>
-                                    </div>
-
-                                </div>}
                                 <h1>{data[0].title}</h1>
                                 <h3>{data[0].year}</h3>
                                 <h3>
